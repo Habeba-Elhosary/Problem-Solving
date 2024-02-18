@@ -5,19 +5,28 @@
 #include <algorithm>
 #include <bits/stdc++.h>
 using namespace std;
-
+ 
+void the_winner(string s) {
+    int a_counter = 0, d_counter = 0;
+    for (int i = 0; i < s.length(); i++) {
+        if (s[i] == 'A')
+            a_counter++;
+        else if (s[i] == 'D')
+            d_counter++;
+    }
+    if (a_counter > d_counter)
+        cout << "Anton";
+    else if (d_counter > a_counter)
+        cout << "Danik";
+    else
+        cout << "Friendship";
+}
+ 
 int main() {
-    long long n, m, a;
-    cin >> n >> m >> a;
-    long long length_flagstones = n / a;
-    if (n % a != 0) {
-        length_flagstones += 1;
-    }
-    long long width_flagstones = m / a;
-    if (m % a != 0) {
-        width_flagstones += 1;
-    }
-    long long total_flagstones = length_flagstones * width_flagstones;
-    cout << total_flagstones << endl;
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    the_winner(s);
     return 0;
 }
